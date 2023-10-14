@@ -1,18 +1,26 @@
 {
   "manifest_version": 2,
   "name": "WebCheumpus",
-  "version": "1.1",
+  "version": "1.2",
 
   "description": "This is a test. Please change description in manifest.json",
 
   "content_scripts": [
     {
-      "matches": ["*://*.webcampus.unamur.be/my/"],
+      "matches": ["*://*.webcampus.unamur.be/*/*"],
       "js": [
         "removeTrickVideo.js",
         "glassStyle.js",
         "removeOldStyle.js"
       ]
     }
+  ],
+
+  "web_accessible_resources": [
+    "static/unamur_logo.png",
+    "static/bell.png",
+    "static/BVE.png",
+    "static/calendar.png",
+    "static/message.png"
   ]
 }
