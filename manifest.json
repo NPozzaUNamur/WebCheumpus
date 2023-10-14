@@ -5,9 +5,22 @@
 
   "description": "This is a test. Please change description in manifest.json",
 
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{49860ea7-bf46-465a-bb69-b143791747a0}"
+    }
+  },
+
   "content_scripts": [
     {
-      "matches": ["*://*.webcampus.unamur.be/*/*"],
+      "matches": [
+        "*://*.webcampus.unamur.be/my/", "*://*.webcampus.unamur.be/my/*",
+        "*://*.webcampus.unamur.be/calendar/*",
+        "*://*.webcampus.unamur.be/course/*", 
+        "*://*.webcampus.unamur.be/user/*",
+        "*://*.webcampus.unamur.be/mod/*",
+        "*://*.webcampus.unamur.be/enrol/*"
+      ],
       "js": [
         "removeTrickVideo.js",
         "glassStyle.js",

@@ -17,7 +17,7 @@ document.querySelector('#page-wrapper').insertAdjacentHTML(
                 <a href="https://bve.unamur.be/" target="_blank"><img src="${browser.runtime.getURL("static/BVE.png")}" alt="B"></a>
                 <a href="https://webcampus.unamur.be/calendar/view.php?view=month"><img src="${browser.runtime.getURL("static/calendar.png")}" alt="C"></a>
                 <a href="#"><img src="${browser.runtime.getURL("static/bell.png")}" alt="N"></a>
-                <a href="#"><img src="${browser.runtime.getURL("static/message.png")}" alt="M"></a>
+                <a id="message-drawer-toggle-652b07cb10904652b07cae7f544" href="#"><img src="${browser.runtime.getURL("static/message.png")}" alt="M"></a>
             </div>
         </div>
     </section>`
@@ -36,7 +36,7 @@ document.querySelector("head").insertAdjacentHTML(
         z-index: 100;
     
         width: 100vw;
-        height: 15vh;
+        height: 10.2vh;
     }
     
     #bar {
