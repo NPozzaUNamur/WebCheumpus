@@ -10,7 +10,8 @@
       "matches": ["*://*.webcampus.unamur.be/my/"],
       "js": [
         "removeTrickVideo.js",
-        "glassStyle.js"
+        "glassStyle.js",
+        "removeOldStyle.js"
       ]
     }
   ]
