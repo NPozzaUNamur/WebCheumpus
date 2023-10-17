@@ -23,8 +23,8 @@
       ],
       "js": [
         "removeTrickVideo.js",
-        "glassStyle.js",
-        "removeOldStyle.js"
+        "modifyStyle.js",
+        "addElementNavBar.js"
       ]
     }
   ],

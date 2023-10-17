@@ -1,7 +1,9 @@
 // Remove old elements
 elemToDel = document.querySelectorAll('header.fixed-top, nav.fixed-top');
 for (let i = 0; i < elemToDel.length; i++) {
-    elemToDel[i].remove();
+    // elemToDel[i].remove();
+    elemToDel[i].style.display = 'none';
+    elemToDel[i].style.visibility = 'hidden';
 }
 
 // Firefox hide scrollbar
