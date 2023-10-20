@@ -11,6 +11,28 @@
     }
   },
 
+  "homepage_url": "https://github.com/NPozzaUNamur/WebCheumpus",
+
+  "icons": {
+    "48": "icons/WebCheumpus-48.png"
+  },
+
+  "permissions": ["activeTab"],
+
+  "browser_action": {
+    "default_icon": "icons/WebCheumpus-48.png",
+    "default_title": "WebCheumpus",
+    "default_popup": "popup/config_popup.html"
+  },
+
+  "web_accessible_resources": [
+    "static/unamur_logo.png",
+    "static/bell.png",
+    "static/BVE.png",
+    "static/calendar.png",
+    "static/message.png"
+  ],
+
   "content_scripts": [
     {
       "matches": [
@@ -22,18 +44,9 @@
         "*://*.webcampus.unamur.be/enrol/*"
       ],
       "js": [
-        "removeTrickVideo.js",
         "modifyStyle.js",
         "addElementNavBar.js"
       ]
     }
-  ],
-
-  "web_accessible_resources": [
-    "static/unamur_logo.png",
-    "static/bell.png",
-    "static/BVE.png",
-    "static/calendar.png",
-    "static/message.png"
   ]
 }
