@@ -17,7 +17,7 @@
     "48": "icons/WebCheumpus-48.png"
   },
 
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab","storage"],
 
   "browser_action": {
     "default_icon": "icons/WebCheumpus-48.png",
@@ -30,7 +30,8 @@
     "static/bell.png",
     "static/BVE.png",
     "static/calendar.png",
-    "static/message.png"
+    "static/message.png",
+    "style/*"
   ],
 
   "content_scripts": [
@@ -44,9 +45,9 @@
         "*://*.webcampus.unamur.be/enrol/*"
       ],
       "js": [
-        "modifyStyle.js",
-        "addElementNavBar.js"
-      ]
+        "listener.js"
+      ],
+      "run_at": "document_end"
     }
   ]
 }

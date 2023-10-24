@@ -6,11 +6,23 @@
   </head>
 
   <body>
+    <div id="popup-header">
+      <h3>WebCheumpus</h3>
+    </div>
     <div id="popup-content">
-      <button>Test</button>
+      <input type="checkbox" id="globalToggle">
+      <label for="globalToggle">Activer l'extension</label>
+      <div id="subToggle">
+        <input type="checkbox" id="navbarGlassToggle">
+        <label for="navbarGlassToggle">Navbar glass effect</label>
+      </div>
+    </div>
+    <div id="popup-content-unmatched" class="hidden">
+      <a href="https://webcampus.unamur.be/my/">Accéder à WebCampus</a>
     </div>
     <div id="error-content" class="hidden">
-      <p>This add-on is designed for unamur webcampus.</p>
+      <p>Un problème est survenue.</p>
+      <p id="msgError"></p>
     </div>
     <script src="config_add_on.js"></script>
   </body>

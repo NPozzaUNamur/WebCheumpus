@@ -1,0 +1,53 @@
+/* logo */
+#logoEffectPurpose {
+
+    width: 7.14vw;
+    height: 7.14vw;
+    flex-shrink: 0;
+
+    margin-left: 41px;
+    margin-top: 1.5vh;
+    
+    /* effect */
+    padding: 0;
+    transition: padding-top 0.2s;
+}
+
+#logoFrame {
+
+    width: 7.14vw;
+    height: 7.14vw;
+    flex-shrink: 0;
+
+    line-height: 0;
+
+    /* effect */
+    background: linear-gradient(133deg, #FFF -7.1%, rgba(220, 220, 220, 0.00) 107.1%);
+    backdrop-filter: blur(20px);
+    box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logoEffectPurpose:hover {
+    padding-top: 3px;
+    transition: padding-top 0.2s;
+}
+
+#logo {
+    width: 5.16vw;
+    height: auto;
+    flex-shrink: 0;
+}
+
+#logo:focus {
+    outline: none !important;
+}
+
+/* Utils */
+.hiddenImportant {
+    display: none !important;
+}
