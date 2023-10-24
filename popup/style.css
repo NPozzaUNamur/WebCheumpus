@@ -42,4 +42,12 @@ button[type="reset"]:hover {
   font-weight: bold;
   margin: 0;
   padding: 0;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  border-bottom: black 1px solid;
+}
+
+#popup-header h3 {
+  margin: 0;
+  padding: 0;
 }

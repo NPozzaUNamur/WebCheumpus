@@ -47,6 +47,11 @@
     outline: none !important;
 }
 
+.pngIcon {
+    width: 2.16vw;
+    min-width: 16px;
+}
+
 /* Utils */
 .hiddenImportant {
     display: none !important;

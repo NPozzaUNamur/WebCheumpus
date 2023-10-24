@@ -43,6 +43,67 @@ function removeLogo() {
     }
 }
 
+function addIcon(idName, path, href, newTab=true) {
+    if (!document.querySelector(`#${idName}`)) {
+        let target = "_self";
+        if (newTab) target = `_blank`;
+        // TODO: Change style attr to css class rule
+        document.querySelector("#usernavigation").insertAdjacentHTML(
+            "afterbegin",
+            `
+            <a id="${idName}" class="popover-region" href="${href}" target="${target}">
+                <img src="${browser.runtime.getURL(path)}" class="pngIcon" alt="${idName}">
+            </a>
+            `
+        );
+    }    
+}
+function removeIcon(idName) {
+    if (document.querySelector(`#${idName}`)) {
+        document.querySelector(`#${idName}`).remove();
+    }
+}
+
+function iconToImg(idImg, path, classIcon) {
+    if(idImg[0] === "#") {
+        selectorImg = idImg;
+        idImg = idImg.replace("#", "");
+    } else {
+        selectorImg = `#${idImg}`;
+    }
+    if(classIcon[0] !== ".") classIcon = `.${classIcon}`;
+    icon = document.querySelector(classIcon);
+    if (icon) {
+        if(icon.classList.contains("d-none")) return;
+        icon.classList.add("d-none");
+        img = document.querySelector(selectorImg);
+        if(!img) {
+            icon.parentElement.insertAdjacentHTML(
+                "afterbegin",
+                `
+                <img id="${idImg}" src="${browser.runtime.getURL(path)}" class="pngIcon" alt="${idImg}">
+                `
+            );
+        } else {
+            if(img.classList.contains("d-none")) img.classList.remove("d-none");
+        }
+    }
+}
+function imgToIcon(idImg, classIcon) {
+    if(idImg[0] !== "#") idImg = `#${idImg}`;
+    if(classIcon[0] !== ".") classIcon = `.${classIcon}`;
+    img = document.querySelector(idImg);
+    icon = document.querySelector(classIcon);
+    console.log(img);
+    console.log(icon);
+    if (img) {
+        if (icon) {
+            if(icon.classList.contains("d-none")) icon.classList.remove("d-none");
+            if(!img.classList.contains("d-none")) img.classList.add("d-none");
+        }
+    }
+}
+
 function loadCSS(path, className) {
     if (document.querySelector(`.${className}`)) return;
     let link = document.createElement('link');
@@ -77,12 +138,21 @@ function customStyleOn() {
     loadCSS("style/addStyle.css", "addStyle")
     loadCSS("style/modifyStyle.css", "modifyStyle")
     hideCall911(true);
+    addIcon("calendrier", "static/calendar.png", "https://webcampus.unamur.be/calendar/view.php?view=month", false);
+    addIcon("bve", "static/BVE.png", "https://bve.unamur.be/", true);
+    iconToImg("bell", "static/bell.png", "fa-bell-o")
+    iconToImg("message", "static/message.png", "fa-comment-o")
+
 }
 function customStyleOff() {
     removeLogo();
     removeCSS("addStyle");
     removeCSS("modifyStyle");
     hideCall911(false);
+    removeIcon("calendrier");
+    removeIcon("bve");
+    imgToIcon("bell", "fa-bell-o");
+    imgToIcon("message", "fa-comment-o");
 }
 
 function setNavbarStyle(style) {
