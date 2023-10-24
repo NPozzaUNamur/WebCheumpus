@@ -1,7 +1,7 @@
 header.fixed-top,
 .primary-navigation,
 #usernavigation form,
-.trick, .call911 {
+.trick, .call911, .divider {
     display: none !important;
     visibility: hidden !important;
 }
@@ -39,7 +39,11 @@ header.fixed-top,
 }
 
 #usernavigation {
-    margin-top: 2.32vh;
+    margin-top: 0;
+}
+
+.usermenu-container {
+    margin-left: 5vw;
 }
 
 #usernavigation [data-region="popover-region-messages"] a:hover,
@@ -65,7 +69,7 @@ header.fixed-top,
     font-size: 1.5rem;
     border-radius: 14px;
 
-    margin-left: 0.40vw;
+    margin: auto auto auto 0.40vw;
 }
 
 .popover-region:hover {
@@ -76,4 +80,8 @@ header.fixed-top,
     backdrop-filter: blur(20px);
     box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25);
     transition: linear 300ms;
+}
+
+#user-menu-toggle {
+    color: #1d2125;
 }
