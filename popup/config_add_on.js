@@ -54,7 +54,6 @@ function changeState(global = null, navbar = null) {
                 "navbar": navbar?navbar: "classic"
             };
         } else {
-            console.log("State found, updating it");
             state = result.state;
             if (global !== null) {
                 state.global = global;
@@ -63,7 +62,6 @@ function changeState(global = null, navbar = null) {
             }
         }        
         browser.storage.local.set({ state });
-        console.log(state);
     }).catch(reportExecuteScriptError);
 }
 function loadState() {
@@ -76,7 +74,6 @@ function loadState() {
         } else {
             state = result.state;
         }
-        console.log(state);
         document.querySelector("#globalToggle").checked = state.global;
         document.querySelector("#navbarGlassToggle").checked = state.navbar === "glass";
     }).catch(reportExecuteScriptError);
@@ -122,7 +119,28 @@ function loadHTMLEvents() {
                 setNavbarStyle("classic")
             }
         });
+    } else {
+        console.error("navbarGlassToggle not found");
     }
+
+    owc = document.querySelector("#openWebcampus")
+    if(owc) owc.addEventListener("click", () => {openWebcampusTab();});
+    else console.error("openWebcampus not found");
+}
+
+function openWebcampusTab() {
+    console.log("openWebcampusTab");
+    browser.tabs.query({
+        url: ["*://webcampus.unamur.be/*"],
+        windowId: browser.windows.WINDOW_ID_CURRENT
+    }).then((tabs) => {
+        console.log(tabs);
+        if (tabs.length === 0) {
+            browser.tabs.create({url: "https://webcampus.unamur.be/"});
+        } else {
+            browser.tabs.update(tabs[0].id,{active:true})
+        }
+    });
 }
 
 function onLoad() {

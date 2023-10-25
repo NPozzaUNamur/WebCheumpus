@@ -17,7 +17,7 @@
     "48": "icons/WebCheumpus-48.png"
   },
 
-  "permissions": ["activeTab","storage"],
+  "permissions": ["activeTab","storage","tabs"],
 
   "browser_action": {
     "default_icon": "icons/WebCheumpus-48.png",
