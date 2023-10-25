@@ -51,3 +51,14 @@ button[type="reset"]:hover {
   margin: 0;
   padding: 0;
 }
+
+#openWebcampus {
+  margin: 0;
+  padding: auto 0;
+}
+
+#openWebcampus:hover {
+  margin: 0;
+  padding: auto 0;
+  text-decoration: underline;
+}

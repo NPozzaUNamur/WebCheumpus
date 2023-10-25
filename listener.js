@@ -1,5 +1,3 @@
-p = (msg) => console.log(msg);
-
 function appendStyle(cssStyleCode, className) {
     if(
         cssStyleCode == null || className == null
@@ -7,14 +5,12 @@ function appendStyle(cssStyleCode, className) {
         throw new Error("appendStyle: cssStyleCode or className is null");
     }
     if (document.getElementById(className)) {
-        if(debug) console.info(`${className} already exists`);
         document.getElementById(className).remove();
     }
     document.querySelector("head").insertAdjacentHTML(
         "beforeend",
         `<style id="${className}">${cssStyleCode}</style>`
     );
-
 }
 function removeStyle(className) {
     if(className[0] !== ".") className = `.${className}`;
@@ -94,8 +90,6 @@ function imgToIcon(idImg, classIcon) {
     if(classIcon[0] !== ".") classIcon = `.${classIcon}`;
     img = document.querySelector(idImg);
     icon = document.querySelector(classIcon);
-    console.log(img);
-    console.log(icon);
     if (img) {
         if (icon) {
             if(icon.classList.contains("d-none")) icon.classList.remove("d-none");
@@ -128,7 +122,6 @@ function hideCall911(hide=true) {
     if(!call) return;
     // Check if d-sm-block is in classList
     let isHidden = !call.classList.contains("d-sm-block");
-    console.log(`isHidden: ${isHidden}`);
     if (!hide && isHidden) call.classList.add("d-sm-block");
     else if (hide && !isHidden) call.classList.remove("d-sm-block");
 }
