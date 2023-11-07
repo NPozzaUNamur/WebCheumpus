@@ -1,9 +1,29 @@
 function reportExecuteScriptError(error) {
-    document.querySelector("#popup-content").classList.add("hidden");
-    document.querySelector("#error-content").classList.remove("hidden");
+    hide(document.querySelector("#popup-content"));
+    hide(document.querySelector("#popup-content-unmatched"));
+    show(document.querySelector("#error-content"));
     console.error(`Failed to execute content script: ${error}`);
     document.querySelector("#msgError").textContent = error;
 }
+
+function hide(element) {
+    if (!element.classList.contains("hidden")) {
+        element.classList.add("hidden");
+    }
+}
+
+function show(element) {
+    while(element.classList.contains("hidden")) {
+        element.classList.remove("hidden");
+    }
+}
+
+function resetHideShow() {
+    hide(document.querySelector("#error-content"));
+    hide(document.querySelector("#popup-content-unmatched"));
+    show(document.querySelector("#popup-content"));
+}
+
 function onNotMatchURL() {
     document.querySelector("#popup-content").classList.add("hidden");
     document.querySelector("#popup-content-unmatched").classList.remove("hidden");
@@ -87,6 +107,7 @@ function setGlobal(on = true) {
         }
     );
 }
+
 function setNavbarStyle(style) {
     commande = "setNavbarStyle";
     sendOrder(commande, style,
@@ -126,6 +147,10 @@ function loadHTMLEvents() {
     owc = document.querySelector("#openWebcampus")
     if(owc) owc.addEventListener("click", () => {openWebcampusTab();});
     else console.error("openWebcampus not found");
+
+    rtn = document.querySelector("#returnToNormal")
+    if(rtn) rtn.addEventListener("click", () => {resetHideShow();});
+    else console.error("returnToNormal not found");
 }
 
 function openWebcampusTab() {
@@ -147,6 +172,13 @@ function onLoad() {
     loadState();
     checkCurrentURL();
     loadHTMLEvents();
+    // testError();
+}
+
+function testError() {
+    title = document.querySelector("h3");
+    title.textContent = "test";
+    title.addEventListener("click", () => {reportExecuteScriptError("test");});
 }
 
 onLoad();
