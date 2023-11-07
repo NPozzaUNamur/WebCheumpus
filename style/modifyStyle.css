@@ -87,6 +87,12 @@ header.fixed-top,
     color: #1d2125;
 }
 
+/* counter notification (red pill icon) */
+.navbar .count-container {
+    top: 0;
+    right: 0;
+}
+
 /* Drawers */
 .drawer-right-toggle {
     margin-right: 0 !important;
