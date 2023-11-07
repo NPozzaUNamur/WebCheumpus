@@ -1,24 +1,3 @@
-function appendStyle(cssStyleCode, className) {
-    if(
-        cssStyleCode == null || className == null
-    ) {
-        throw new Error("appendStyle: cssStyleCode or className is null");
-    }
-    if (document.getElementById(className)) {
-        document.getElementById(className).remove();
-    }
-    document.querySelector("head").insertAdjacentHTML(
-        "beforeend",
-        `<style id="${className}">${cssStyleCode}</style>`
-    );
-}
-function removeStyle(className) {
-    if(className[0] !== ".") className = `.${className}`;
-    if (document.getElementById(className)) {
-        document.getElementById(className).remove();
-    }
-}
-
 function addLogo() {
     if (!document.querySelector("#logoEffectPurpose")) {
         document.querySelector("nav.fixed-top").insertAdjacentHTML(
