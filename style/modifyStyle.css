@@ -85,3 +85,9 @@ header.fixed-top,
 #user-menu-toggle {
     color: #1d2125;
 }
+
+/* counter notification (red pill icon) */
+.navbar .count-container {
+    top: 0;
+    right: 0;
+}
