@@ -9,6 +9,7 @@ header.fixed-top,
 .navbar.fixed-top {
     top: 0;
     height: 10.2vh;
+    min-height: 56px;
     border: 0;
 }
 
@@ -85,3 +86,23 @@ header.fixed-top,
 #user-menu-toggle {
     color: #1d2125;
 }
+
+/* Drawers */
+.drawer-right-toggle {
+    margin-right: 0 !important;
+}
+
+.hasbrandbanner .drawer-left, 
+.hasbrandbanner .drawer-right {
+    top: 10.2vh;
+    height: calc(100vh - 10.2vh);
+}
+.hasbrandbanner .drawer-left {
+    padding-top: 30px;
+}
+
+/* enrol main */
+/* .main-inner {
+    margin-top: 3rem !important;
+    padding: 0 3rem !important;
+} */
