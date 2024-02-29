@@ -99,7 +99,8 @@ header.fixed-top,
 }
 
 .hasbrandbanner .drawer-left, 
-.hasbrandbanner .drawer-right {
+.hasbrandbanner .drawer-right,
+[data-region="right-hand-drawer"].drawer {
     top: 10.2vh;
     height: calc(100vh - 10.2vh);
 }

@@ -8,7 +8,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "{49860ea7-bf46-465a-bb69-b143791747a0}",
+      "id": "{49860ea8-bf46-465a-bb69-b143791747a0}",
       "update_url":"https://github.com/NPozzaUNamur/WebCheumpus/releases/latest/download/updates.json"
     }
   },
