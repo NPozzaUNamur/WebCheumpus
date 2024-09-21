@@ -40,12 +40,15 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.webcampus.unamur.be/my/", "*://*.webcampus.unamur.be/my/*",
+        "*://*.webcampus.unamur.be/my/", 
+		"*://*.webcampus.unamur.be/my/*",
         "*://*.webcampus.unamur.be/calendar/*",
         "*://*.webcampus.unamur.be/course/*", 
         "*://*.webcampus.unamur.be/user/*",
         "*://*.webcampus.unamur.be/mod/*",
-        "*://*.webcampus.unamur.be/enrol/*"
+        "*://*.webcampus.unamur.be/enrol/*",
+		"*://*.webcampus.unamur.be/message/*",
+		"file:///home/noe/Downloads/Tableau%20de%20bord%20_%20WebCampus.html"
       ],
       "js": [
         "listener.js"

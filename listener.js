@@ -105,15 +105,95 @@ function hideCall911(hide=true) {
     else if (hide && !isHidden) call.classList.remove("d-sm-block");
 }
 
+/**
+ * Add a set of fonctionnality to performe some ux feature on dashboard page
+ * Can be remove by running disable_dashboard_features
+ */
+function enable_dashboard_features() {
+	// check if dashboard page
+	courses_container_list = document.querySelectorAll(`[data-region="course-content"]`);
+	courses_container_list.forEach(courseContainer => {
+		courseContainer.addEventListener("click", redirectClickEventToCourseLinkElement);
+		addElementColor(courseContainer,  getCourseColor(courseContainer));
+	});
+}
+
+/**
+ * Redirect clicking event on <a> child. Allow user to click on parent instead of child.
+ * @param {Event} event Allow to get the target element, which can be either parents of <a> child or <a> child itself
+ */
+function redirectClickEventToCourseLinkElement(event) {
+	target = event.target || event.srcElement;
+	// Check if target is the not the <a> child (else do nothing)
+	if (target.tagName !== "A") {
+		// Get hyperlink child
+		link = target.querySelector("a");
+		link.click();
+	}	
+}
+
+function disable_dashboard_features() {
+	courses_container_list = document.querySelectorAll("li .list-group-item");
+	courses_container_list.forEach(course_container => {
+		course_container.addEventListener("click", null);
+	});
+}
+/**
+ * Converts a text to a color. The same text will always return the same color.
+ * @param {String} text The text that will be converted to a color
+ * @returns Color in HEX format
+ */
+function textToColor(text) {
+    // Simple hash function
+    let hash = 0;
+    for (let i = 0; i < text.length; i++) {
+        hash = text.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    // Convert hash to RGB
+    const r = (hash & 0xFF0000) >> 16;
+    const g = (hash & 0x00FF00) >> 8;
+    const b = hash & 0x0000FF;
+
+    // Return the color in HEX format
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+}
+
+/**
+ * Get the color of a course
+ * @param {HTMLElement} courseContainer The container element of the course.
+ * @returns {String} The color of the course in HEX format.
+ */
+function getCourseColor(courseContainer) {
+	console.log(courseContainer);
+	// Get the course name
+	const courseName = courseContainer.querySelector(".coursename").textContent;
+	// Return the color
+	return textToColor(courseName);
+}
+
+/**
+ * Apply a gradiant color to an element.
+ * @param {HTMLElement} element Element on which apply the gradiant color.
+ * @param {String} colorHexCode The color in HEX format.
+ */
+function addElementColor(element, colorHexCode) {
+	// Apply the color to the course
+	styleAttribute = `background: linear-gradient(153deg, ${colorHexCode} -39%, rgba(210,215,205,1) 60%);`
+	element.setAttribute("style", styleAttribute);
+}
+
+
 function customStyleOn() {
     addLogo();
-    loadCSS("style/addStyle.css", "addStyle")
-    loadCSS("style/modifyStyle.css", "modifyStyle")
+    loadCSS("style/addStyle.css", "addStyle");
+    loadCSS("style/modifyStyle.css", "modifyStyle");
     hideCall911(true);
     addIcon("calendrier", "static/calendar.png", "https://webcampus.unamur.be/calendar/view.php?view=month", false);
     addIcon("bve", "static/BVE.png", "https://bve.unamur.be/", true);
-    iconToImg("bell", "static/bell.png", "fa-bell-o")
-    iconToImg("message", "static/message.png", "fa-comment-o")
+    iconToImg("bell", "static/bell.png", "fa-bell-o");
+    iconToImg("message", "static/message.png", "fa-comment-o");
+	enable_dashboard_features();
 
 }
 function customStyleOff() {
@@ -125,6 +205,8 @@ function customStyleOff() {
     removeIcon("bve");
     imgToIcon("bell", "fa-bell-o");
     imgToIcon("message", "fa-comment-o");
+	disable_dashboard_features();
+	
 }
 
 function setNavbarStyle(style) {

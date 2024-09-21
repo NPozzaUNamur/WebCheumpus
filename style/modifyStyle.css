@@ -9,7 +9,7 @@ header.fixed-top,
 .navbar.fixed-top {
     top: 0;
     height: 10.2vh;
-    min-height: 56px;
+    min-height: 90px;
     border: 0;
 }
 
@@ -108,8 +108,72 @@ header.fixed-top,
     padding-top: 30px;
 }
 
-/* enrol main */
-/* .main-inner {
-    margin-top: 3rem !important;
-    padding: 0 3rem !important;
-} */
+/* Remove arrow from dropdown */
+.popover-region-toggle::after {
+	border-left: unset !important;
+	border-right: unset !important;
+}
+
+/* Course table from Home dashboard page */
+.list-group {
+	display: flex;
+	flex-direction: unset !important;
+	flex-wrap: wrap;
+}
+
+[data-region="course-content"] {
+	--size-square: 17rem;
+    background: linear-gradient(153deg, #7fa4cf -39%, rgba(210,215,205,1) 60%);
+	border-top-width: unset;
+	width: var(--size-square);
+	height: var(--size-square);
+	padding: 0 !important;
+	margin: 1rem;
+	border: 0 !important;
+	border-radius: var(--radius-course-item-wcheum) !important;
+}
+
+[data-region="course-content"] > div {
+	padding: 0.7rem 0.8rem;
+	background: linear-gradient(133deg, #FFF -7.1%, rgba(220, 220, 220, 0.00) 107.1%);
+    backdrop-filter: blur(20px);
+	margin: 0;
+	border-radius: var(--radius-course-item-wcheum);
+	position: absolute;
+	bottom: 0;
+	width:100%;
+	min-height:43% !important;
+	overflow: hidden;
+	transition: min-height cubic-bezier(.75,-0.03,.27,1.55) 500ms;
+	display: unset;
+}
+
+/* Course Name */
+[data-region="course-content"]:hover > div {
+	min-height: var(--course-extended-height-wcheum) !important;
+	transition: min-height cubic-bezier(.75,-0.03,.27,1.55) 500ms;
+}
+
+/* Course menu (three vertical points) */
+[data-region="course-content"] > div > .menu {
+	display: none !important;
+}
+
+/* Course Name text */
+[data-region="course-content"] > div > .d-flex {
+	max-width: unset !important;
+}
+
+[data-region="course-content"]:hover > div > .d-flex {
+}
+
+[data-region="course-content"] > div > .d-flex > a {
+	color: var(--font-color-wcheum);
+	font-family: var(--font-wcheum);
+	text-decoration: none !important;
+	font-weight: bold;
+}
+
+.coursename > div > .pl-1, .categoryname, [data-region="favourite-icon"] {
+	display: none;
+}

@@ -1,3 +1,9 @@
+:root{
+	--radius-course-item-wcheum:14px;
+	--font-wcheum: 'Roboto', sans-serif;
+	--font-color-wcheum: #1d2125;
+	--course-extended-height-wcheum: 83%;
+}
 /* logo */
 #logoEffectPurpose {
 

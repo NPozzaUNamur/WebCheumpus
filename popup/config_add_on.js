@@ -33,7 +33,7 @@ function onMatchURL() {
     document.querySelector("#popup-content-unmatched").classList.add("hidden");
 }
 function checkURL(tab) {
-    if (tab.url.includes("https://webcampus.unamur.be")) {
+    if (tab.url.includes("https://webcampus.unamur.be") || tab.url.includes("file://")) {
         onMatchURL();
         return true;
     } else {
